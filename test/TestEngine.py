@@ -1,11 +1,9 @@
 import unittest
 from datetime import datetime
-from ..engine import Engine
+from ..engine.model import Engine
 
 
 class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
 
     def test_Capulet_engine_should_be_serviced(self):
         last_service_date = datetime.today().date()
@@ -17,7 +15,8 @@ class MyTestCase(unittest.TestCase):
         last_service_date = datetime.today().date()
         current_mileage = 60001
         last_service_mileage = 0
-        self.assertEqual(Engine.WilloughbyEngine.needs_service(last_service_date, current_mileage, last_service_mileage))
+        self.assertEqual(
+            Engine.WilloughbyEngine.needs_service(last_service_date, current_mileage, last_service_mileage))
 
     def test_SternmanEngine_engine_should_be_serviced(self):
         last_service_date = datetime.today().date()
